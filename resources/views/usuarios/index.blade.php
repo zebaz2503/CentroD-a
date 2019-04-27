@@ -35,6 +35,7 @@
                     </form>
                     {!! Form::close() !!}
                   </div>
+               
                   <!----------------------------------------------------------------------------------------------------------->
               </div> 
             </div> 
@@ -85,6 +86,9 @@
 
                                   <button class="btn btn-danger"type="submit" onclick="return confirm('Borrar?');">Borrar</button>
                                   </form>
+                                  <a href="{{ url('/usuarios/' .$usuario-> id) }}" id="sample_editable_1_new" class="btn btn-success">
+                                    Ver 
+                                  </a>
                                   
                                   
                                   

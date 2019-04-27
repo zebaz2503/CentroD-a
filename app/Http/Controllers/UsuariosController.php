@@ -126,9 +126,13 @@ class UsuariosController extends Controller
      * @param  \App\Usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuarios $usuarios)
+    public function show($id)
     {
         //
+        $usuario= Usuarios::findOrFail($id);
+
+        return view('usuarios.ver',compact('usuario'));
+
     }
 
     /**
@@ -165,7 +169,7 @@ class UsuariosController extends Controller
             'segundo_nombre' =>  'required|string|max:100',
             'primer_apellido' =>  'required|string|max:100',
             'segundo_apellido' => 'required|string|max:100',
-            'foto' =>  'required|string|max:100',
+            'foto' =>  'required',
             'tipo_documento' =>  'required|string|max:100',
             'fecha_nacimiento' => 'required|string|max:100',
             'numero_documento' =>  'required|string|max:100',

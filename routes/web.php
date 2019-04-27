@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('auth.login');
 });*/ //si se desea que la pagina de inicio sea el login
 
-//Route::get('/usuarios', 'UsuariosController@index');
-//Route::get('/usuarios/create', 'UsuariosController@create');
-
-
 Route::resource('usuarios', 'UsuariosController');
 
 Auth::routes(['register'=>false, 'reset'=>false]);

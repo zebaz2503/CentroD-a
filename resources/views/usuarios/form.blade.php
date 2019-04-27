@@ -16,8 +16,6 @@
                 <div class="form-group">
 
                 
-                    
-                    
                     <label for="primer_nombre" class="control-label">{{'Nombres'}}</label>
 
                     <input type="text" class="form-control {{$errors->has('primer_nombre')? 'is-invalid':'' }} " name="primer_nombre" id="primer_nombre" 
