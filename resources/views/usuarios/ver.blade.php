@@ -12,9 +12,10 @@
     <!-- BEGIN FORM-->
         <form class="form-horizontal" role="form">  
         <a href="{{ url('/usuarios/') }}" id="sample_editable_1_new" class="btn btn-primary">Regresar</a>  
-        <hr>   
+        <br>   
+        <br>
             <div class="form-body">
-                <h1 class="form-section">Usuario # {{ $usuario->id}} : {{ $usuario-> primer_nombre}} {{ $usuario-> segundo_nombre}} {{ $usuario-> primer_apellido}} {{ $usuario-> segundo_apellido}}</h1>
+                <h1 class="form-section">Usuario # {{ $usuario->id}} : {{ $usuario-> primer_nombre}} {{ $usuario-> primer_apellido}}</h1>
                     
                         <div class="col-md-6">
                             <div class="form-group">
@@ -26,7 +27,9 @@
             </div> 
         </form> 
     </div>    
-</div>               
+</div>          
+
+
         <!------------------------------------------------------------------->
         <h4>IDENTIFICACIÓN BÁSICA DEL BENEFICIARIO(A)</h4>
         <div class="portlet light bordered">
@@ -261,7 +264,7 @@
                     <div class="form-group">                                                                                                        
                             <label class="control-label text-primary">Zona Residencial</label>
                             <!-- <p class="form-control-static"> {{ $usuario-> primer_nombre}} </p> -->
-                            <input class="form-control"  type="text" value="{{ $usuario-> zona_residencial}}" name="zona_residencial" readonly>                                          
+                            <input class="form-control"  type="text" value="{{ $usuario-> zona_residencia}}" name="zona_residencial" readonly>                                          
                     </div>
                 </div>
             <!--------------------------------------------------------------------->
@@ -333,7 +336,7 @@
                     <div class="form-group">                                                                                                        
                             <label class="control-label text-primary">Parentesco</label>
                             <!-- <p class="form-control-static"> {{ $usuario-> primer_nombre}} </p> -->
-                            <input class="form-control"  type="text" value="{{ $usuario-> parantesco}}" name="parentesco" readonly>                                          
+                            <input class="form-control"  type="text" value="{{ $usuario-> parentesco}}" name="parentesco" readonly>                                          
                     </div>
                 </div>
         </div>
@@ -363,7 +366,7 @@
                     <div class="form-group">                                                                                                        
                             <label class="control-label text-primary">Expectativas con Centro Día</label>
                             <!-- <p class="form-control-static"> {{ $usuario-> primer_nombre}} </p> -->
-                            <input class="form-control"  type="text" value="{{ $usuario-> expectativas}}" name="expectativas" readonly>                                          
+                            <textarea class="form-control"  type="text" value="" name="expectativas" readonly> {{ $usuario-> expectativas}}</textarea>                                         
                     </div>
                 </div>
 
@@ -379,7 +382,7 @@
                     <div class="form-group">                                                                                                        
                             <label class="control-label text-primary">Condiciones Medicas</label>
                             <!-- <p class="form-control-static"> {{ $usuario-> primer_nombre}} </p> -->
-                            <input class="form-control"  type="text" value="{{ $usuario-> condicion_medica}}" name="condicion_medica" readonly>                                          
+                            <textarea class="form-control"  type="text" value="" name="condicion_medica" readonly> {{ $usuario-> condicion_medica}} </textarea>                                        
                     </div>
                 </div>
         </div>
@@ -402,7 +405,7 @@
                     <div class="form-group">                                                                                                        
                             <label class="control-label text-primary">Observaciones</label>
                             <!-- <p class="form-control-static"> {{ $usuario-> primer_nombre}} </p> -->
-                            <input class="form-control"  type="text" value="{{ $usuario-> observaciones}}" name="observaciones" readonly>                                          
+                            <textarea class="form-control"  type="text" value="" name="observaciones" readonly> {{ $usuario-> observaciones}} </textarea>                                        
                     </div>
                 </div>
             <!--------------------------------------------------------------------->
@@ -418,7 +421,42 @@
 
         </div>
 </div>
+<hr>
+ <!------------------------------------------------------------------------------------------>
+ <nav class="navbar navbar-dark bg-primary">
+  <h4>Diagnóstico Nutricional</h4>
+</nav>
 
+ <table class="table table-striped table-hover table-bordered dataTable no-footer">
+                <thead class="thead-light">
+                    <tr>
+                    <th style="text-align: center">#</th>
+                    <th style="text-align: center">Peso (Kg)</th>
+                    <th style="text-align: center">Talla</th>
+                    <th style="text-align: center">Diagnóstico por Peso</th>
+                    <th style="text-align: center">Diagnóstico por Nutrición</th>
+                    <th style="text-align: center">Fecha de Diagnóstico</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                @foreach ($nutricion as $nutrir) <!--variable unica para mostrar-->
+                    <tr>
+                    <td align="center">{{$loop->iteration}}</td>
+                    
+                    <td align="center">{{ $nutrir->peso}} Kg</th><!--tener cuidado con el nombre en la tabla de base de datos-->
+                    <td align="center">{{ $nutrir->talla}}</th>
+                    <td align="center">{{ $nutrir->diagnostico}}</th>
+                    <td align="center">{{ $nutrir->desnutricion}}</th>
+                    <td align="center">{{ $nutrir->created_at->format('d/m/Y')}}</th>
+                                    <!-------------------------------->
+                                        
+                
+                @endforeach
+                </tbody>
+            </table>
+                <center><a href="{{ url('/usuarios/') }}" id="sample_editable_1_new" class="btn btn-primary">Regresar</a> </center>
 
 </div>
 @endsection

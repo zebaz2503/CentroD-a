@@ -7,7 +7,21 @@
 <img class="login-logo" src="{{ asset('css/escudo.png') }}" />
 <img class="login-logo" src="{{ asset('css/logos.png') }}" width="450" height="100" />
 </center>
+<br>
 
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+  <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{url('usuarios') }}">Usuarios</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('nutricion') }}">Nutrición</a>
+  </li>
+</ul>
+</nav>
+<br>
 @if(Session::has('Mensaje'))
 
 <div class="alert alert-success" role="alert">
@@ -16,16 +30,9 @@
 
 @endif
 
-
-          <div class="row">
-            <div class="col-md-6">
-                  <a href="{{ url('usuarios/create') }}" class="btn btn-primary">Agregar Usuario +</a>
-                  <br/>
-                  <br/>
-
                   <!----------------------------------------------------------METODO DE BUSCAR------------------------------------------------->
                   <div class="panel-body">
-                    <form class="form-inline pull-right">
+                    <form class="form-inline float-sm-right">
                     {!! Form::open(array('url' => '/canes/', 'method' => 'GET', 'class'=> 'btn btn-outline-primary', 'role'=>'search')) !!}
                     
                       <div class="form-group">  
@@ -37,6 +44,14 @@
                   </div>
                
                   <!----------------------------------------------------------------------------------------------------------->
+
+          <div class="row">
+            <div class="col-md-6">
+                  <a href="{{ url('usuarios/create') }}" class="btn btn-primary">Agregar Usuario +</a>
+                  <br/>
+                  <br/>
+
+
               </div> 
             </div> 
 
@@ -70,7 +85,7 @@
                                   <img src="{{ asset('storage').'/'.$usuario->foto}}" class="img-thumbnail img-fluid" alt="" width="100">
                               
                                   </td>
-                                  <td>{{ $usuario->primer_nombre}}  {{ $usuario->primer_apellido}} {{ $usuario->segundo_apellido}}</td><!--tener cuidado con el nombre en la tabla de base de datos-->
+                                  <td>{{ $usuario->primer_nombre}}  {{ $usuario->primer_apellido}} </td><!--tener cuidado con el nombre en la tabla de base de datos-->
                                   <td>{{ $usuario->tipo_documento}}</td>
                                   <td>{{ $usuario->fecha_nacimiento}}</td>
                                   <td>{{ $usuario->numero_documento}}</td>

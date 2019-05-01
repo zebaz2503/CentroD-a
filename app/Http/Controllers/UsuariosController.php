@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Route;
+use App\Nutricion;
 
 class UsuariosController extends Controller
 {
@@ -53,9 +55,9 @@ class UsuariosController extends Controller
         $campos=[
 
             'primer_nombre' => 'required|string|max:100',
-            'segundo_nombre' =>  'required|string|max:100',
+            
             'primer_apellido' =>  'required|string|max:100',
-            'segundo_apellido' => 'required|string|max:100',
+            
             'foto' =>  'required',
             'tipo_documento' =>  'required|string|max:100',
             'fecha_nacimiento' => 'required|string|max:100',
@@ -129,9 +131,10 @@ class UsuariosController extends Controller
     public function show($id)
     {
         //
+        $nutricion = Nutricion::where('id_usuario', '=', $id)->get();
         $usuario= Usuarios::findOrFail($id);
 
-        return view('usuarios.ver',compact('usuario'));
+        return view('usuarios.ver',['nutricion'=>$nutricion],compact('usuario'));
 
     }
 
@@ -162,15 +165,15 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $usuario = Usuarios::all();
         $campos=[
 
             'primer_nombre' => 'required|string|max:100',
-            'segundo_nombre' =>  'required|string|max:100',
+            
             'primer_apellido' =>  'required|string|max:100',
-            'segundo_apellido' => 'required|string|max:100',
-            'foto' =>  'required',
-            'tipo_documento' =>  'required|string|max:100',
+            
+            
+            
             'fecha_nacimiento' => 'required|string|max:100',
             'numero_documento' =>  'required|string|max:100',
             'edad' =>  'required|string|max:100',
@@ -225,11 +228,6 @@ class UsuariosController extends Controller
         
         
         Usuarios::where('id','=',$id)->update($datosUsuarios);
-
-
-
-        //$usuario= Usuarios::findOrFail($id);
-        //return view('usuarios.edit',compact('usuario'));
 
         return redirect('usuarios')->with('Mensaje','Usuario modificado con éxito');
 

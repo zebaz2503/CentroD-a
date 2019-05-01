@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +16,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/*Route::get('/', function () {
-    return view('auth.login');
-});*/ //si se desea que la pagina de inicio sea el login
 
 Route::resource('usuarios', 'UsuariosController');
+Route::resource('nutricion', 'NutricionController');
 
-Auth::routes(['register'=>false, 'reset'=>false]);
+
+Auth::routes(['reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

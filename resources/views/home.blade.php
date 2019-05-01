@@ -14,12 +14,9 @@
                     @endif
 
                     <h1>Bienvenido {{ Auth::user()->name }}</h1>
-                    <a href="{{ url('usuarios') }}">Ingresar a Usuarios</a>
+                    <a href="{{ url('usuarios') }}" class="btn btn-primary">Ingresar</a>
                 </div>
             </div>
-
-
-        
 </div>
 @endsection
 

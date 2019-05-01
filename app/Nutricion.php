@@ -4,16 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuarios extends Model
+class Nutricion extends Model
 {
     //
-
     public function scopeName($query, $name){
 
         if(trim($name) != ""){
-            $query->where(\DB::raw("CONCAT(primer_nombre, primer_apellido, numero_documento, ' ')"), "LIKE", "%$name%");
+            $query->where(\DB::raw("CONCAT(created_at, ' ')"), "LIKE", "%$name%");
         }
         
     }
-
 }

@@ -27,7 +27,7 @@
             </div>
 
             <!-- -------------------------------   -------------------------------------------->
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="form-group">
                     <label for="segundo_nombre"  class="control-label">{{'Segundo Nombre'}}</label>
 
@@ -37,11 +37,11 @@
                     {!! $errors->first('segundo_nombre','<div class="invalid-feedback">:message</div>') !!}
 
                 </div>
-            </div>
+            </div>-->
             <!-- -------------------------------   -------------------------------------------->
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="primer_apellido" class="control-label">{{'Primer Apellido'}}</label>
+                    <label for="primer_apellido" class="control-label">{{' Apellidos'}}</label>
 
                     <input type="text" class="form-control {{$errors->has('primer_apellido')? 'is-invalid':'' }}" name="primer_apellido" id="primer_apellido" 
                     value="{{ isset($usuario->primer_apellido)?$usuario->primer_apellido:old('primer_apellido')}}">
@@ -51,7 +51,7 @@
             </div>
             <!-- -------------------------------   -------------------------------------------->
 
-            <div class="col-md-6">
+            <!--<div class="col-md-6">
                 <div class="form-group">
 
                     <label for="segundo_apellido" class="control-label">{{'Segundo Apellido'}}</label>
@@ -61,7 +61,7 @@
 
                     {!! $errors->first('segundo_apellido','<div class="invalid-feedback">:message</div>') !!}
                 </div>
-            </div>
+            </div>-->
             <!-- -------------------------------   -------------------------------------------->
             <div class="col-md-6">
                 <div class="form-group">
@@ -87,8 +87,8 @@
                     <select for="tipo_documento" class="form-control {{$errors->has('tipo_documento')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="tipo_documento" 
                         id="tipo_documento" 
-                        tabindex="1" value="{{ isset($usuario->tipo_documento) ? $usuario->tipo_documento:old('tipo_documento') }}">
-                        <option selected="">Elija una opción...</option>
+                         value="{{ isset($usuario->tipo_documento) ? $usuario->tipo_documento:old('tipo_documento') }}">
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Cedula Ciudadania">Cedula Ciudadanía</option>
                         <option value="Registro de Nacimiento NUIP">Registro de Nacimiento NUIP</option>
                         <option value="Cedula de Extrangería">Cedula de Extrangería</option>
@@ -147,7 +147,7 @@
 
                         {!! $errors->first('sexo','<div class="invalid-feedback">:message</div>') !!}
 
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Femenino">Femenino</option>
                         <option value="Otro">Otro</option>
@@ -176,7 +176,7 @@
 
                         {!! $errors->first('sisben','<div class="invalid-feedback">:message</div>') !!}
 
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Si">Si</option>
                         <option value="No">No</option>
                                      
@@ -207,11 +207,11 @@
 
                     <label for="afiliacion_eps" class="control-label">{{'Afiliación EPS'}}</label>
 
-                    <select for="afiliacion_eps" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="afiliacion_eps" class="form-control {{$errors->has('afiliacion_eps')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="afiliacion_eps" 
                         id="afiliacion_eps" 
                         tabindex="1" value="{{ isset($usuario->afiliacion_eps) ? $usuario->afiliacion_eps:old('afiliacion_eps') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Si">Si</option>
                         <option value="No">No</option>
                      
@@ -228,14 +228,14 @@
 
                     <label for="estado_eps" class="control-label">{{'Estado EPS'}}</label>
 
-                    <select for="estado_eps" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="estado_eps" class="form-control {{$errors->has('estado_eps')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="estado_eps" 
                         id="estado_eps" 
                         tabindex="1" value="{{ isset($usuario->estado_eps) ? $usuario->afiliacion_eps:old('estado_eps') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Contributiva">Contributiva</option>
                         <option value="Subsidiada">Subsidiada</option>
-                     
+                        <option value="Regimen Especial">Regimen Especial</option>
               
                     </select>
 
@@ -264,11 +264,11 @@
 
                     <label for="condicion_poblacion" class="control-label">{{'Condición Pablacional'}}</label>
 
-                    <select for="condicion_poblacion" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="condicion_poblacion" class="form-control {{$errors->has('condicion_poblacion')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="condicion_poblacion" 
                         id="condicion_poblacion" 
                         tabindex="1" value="{{ isset($usuario->condicion_poblacion) ? $usuario->condicion_poblacion:old('condicion_poblacion') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Victima del conflicto">Victima del conflicto</option>
                         <option value="Reinsertado(a)">Reinsertado(a)</option>
                         <option value="Desmovilizado(a)">Desmovilizado(a)</option>
@@ -293,11 +293,11 @@
 
                     <label for="nivel_educativo" class="control-label">{{'Nivel Educativo'}}</label>
 
-                    <select for="nivel_educativo" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="nivel_educativo" class="form-control {{$errors->has('nivel_educativo')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="nivel_educativo" 
                         id="nivel_educativo" 
                         tabindex="1" value="{{ isset($usuario->nivel_educativo) ? $usuario->nivel_educativo:old('nivel_educativo') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Ninguno">Ninguno</option>
                         <option value="Primaria Completa">Primaria Completa</option>
                         <option value="Primaria Incompleta">Primaria Incompleta</option>
@@ -327,11 +327,11 @@
 
                                 <label for="organizacion_asociacion" class="control-label">{{'Pertenece ha alguna Organización(es) Y/O Asociación(es)  ?'}}</label>
 
-                                <select for="organizacion_asociacion" class="form-control" data-placeholder="Choose a Category" 
+                                <select for="organizacion_asociacion" class="form-control {{$errors->has('organizacion_asociacion')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                                     name="organizacion_asociacion" 
                                     id="organizacion_asociacion" 
                                     tabindex="1" value="{{ isset($usuario->organizacion_asociacion) ? $usuario->organizacion_asociacion:old('organizacion_asociacion') }}">
-                                    <option selected="">Elija una opción...</option>
+                                    <option disabled selected="">Elija una opción...</option>
                                     <option value="Si">Si</option>
                                     <option value="No">No</option>
                                 
@@ -346,11 +346,11 @@
 
                                 <label for="subsidio" class="control-label">{{'Subsidio(s) por parte del gobierno'}}</label>
 
-                                <select for="subsidio" class="form-control" data-placeholder="Choose a Category" 
+                                <select for="subsidio" class="form-control {{$errors->has('subsidio')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                                     name="subsidio" 
                                     id="subsidio" 
                                     tabindex="1" value="{{ isset($usuario->subsidio) ? $usuario->subsidio:old('subsidio') }}">
-                                    <option selected="">Elija una opción...</option>
+                                    <option disabled selected="">Elija una opción...</option>
                                     <option value="Si">Si</option>
                                     <option value="No">No</option>
                                 
@@ -365,11 +365,11 @@
 
                                 <label for="tipo_subsidio" class="control-label">{{'Tipo de Subsidio'}}</label>
 
-                                <select for="tipo_subsidio" class="form-control" data-placeholder="Choose a Category" 
+                                <select for="tipo_subsidio" class="form-control {{$errors->has('tipo_subsidio')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                                     name="tipo_subsidio" 
                                     id="tipo_subsidio" 
                                     tabindex="1" value="{{ isset($usuario->tipo_subsidio) ? $usuario->tipo_subsidio:old('tipo_subsidio') }}">
-                                    <option selected="">Elija una opción...</option>
+                                    <option disabled selected="">Elija una opción...</option>
                                     <option value="Gobierno">Gobierno</option>
                                     <option value="Sector Privado">Sector Privado</option>
                                     <option value="No Aplica">No aplica</option>
@@ -385,10 +385,10 @@
                     <label for="cual_subsidio" class="control-label">{{'Otro. Cual?'}}</label>
 
                    
-                    <textarea type="text"  class="form-control {{$errors->has('cual_subsidio')? 'is-invalid':'' }}" 
+                    <input type="text"  class="form-control {{$errors->has('cual_subsidio')? 'is-invalid':'' }}" 
                     name="cual_subsidio" 
                     id="cual_subsidio" 
-                    value="{{ isset($usuario->cual_subsidio)?$usuario->cual_subsidio:old('cual_subsidio')}}" > </textarea>
+                    value="{{ isset($usuario->cual_subsidio)?$usuario->cual_subsidio:old('cual_subsidio')}}" > 
 
                     {!! $errors->first('cual_subsidio','<div class="invalid-feedback">:message</div>') !!}
                 </div>
@@ -399,10 +399,10 @@
                 <div class="form-group">
                     <label for="tiempo_libre" class="control-label">{{'Describa su tiempo libre'}}</label>
 
-                    <textarea type="text"  class="form-control {{$errors->has('tiempo_libre')? 'is-invalid':'' }}" 
+                    <input type="text"  class="form-control {{$errors->has('tiempo_libre')? 'is-invalid':'' }}" 
                     name="tiempo_libre" 
                     id="tiempo_libre" 
-                    value="{{ isset($usuario->tiempo_libre)?$usuario->tiempo_libre:old('tiempo_libre')}}"> </textarea>
+                    value="{{ isset($usuario->tiempo_libre)?$usuario->tiempo_libre:old('tiempo_libre')}}">
 
                     {!! $errors->first('tiempo_libre','<div class="invalid-feedback">:message</div>') !!}
                 </div>
@@ -418,11 +418,11 @@
                 <div class="form-group">
                 <label for="departamento" class="control-label">{{'Departamento'}}</label>
 
-                    <select for="departamento" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="departamento" class="form-control {{$errors->has('departamento')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="departamento" 
                         id="departamento" 
                         tabindex="1" value="{{ isset($usuario->departamento) ? $usuario->departamento:old('departamento') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Cundinamarca">Cundinamarca</option>
  
                     </select>
@@ -436,11 +436,11 @@
                 <div class="form-group">
                 <label for="municipio" class="control-label">{{'Municipio'}}</label>
 
-                    <select for="municipio" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="municipio" class="form-control {{$errors->has('municipio')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="municipio" 
                         id="municipio" 
                         tabindex="1" value="{{ isset($usuario->municipio) ? $usuario->municipio:old('municipio') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="La Vega">La Vega</option>
  
                     </select>
@@ -451,18 +451,18 @@
        <!------------------------------------------------------->
        <div class="col-md-6">
                 <div class="form-group">
-                <label for="zona_residencia" class="control-label">{{'Zona Residencial'}}</label>
+                <label for="zona_residencia" class="control-label ">{{'Zona Residencial'}}</label>
 
-                    <select for="zona_residencia" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="zona_residencia" class="form-control {{$errors->has('zona_residencia')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="zona_residencia" 
                         id="zona_residencia" 
                         tabindex="1" value="{{ isset($usuario->zona_residencia) ? $usuario->zona_residencia:old('zona_residencia') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Urbana">Urbana</option>
                         <option value="Rural">Rural</option>
  
                     </select>
-                   
+                    {!! $errors->first('zona_residencia','<div class="invalid-feedback">:message</div>') !!}
         <br/>        
                 </div>
             </div>
@@ -572,11 +572,11 @@
 
                     <label for="actividad_principal" class="control-label">{{'ACTUALMENTE SU ACTIVIDAD PRINCIPAL ES: (Asigne una sola alternativa, la que mejor describa la actividad principal)'}}</label>
 
-                    <select for="actividad_principal" class="form-control" data-placeholder="Choose a Category" 
+                    <select for="actividad_principal" class="form-control {{$errors->has('actividad_principal')? 'is-invalid':'' }}" data-placeholder="Choose a Category" 
                         name="actividad_principal" 
                         id="actividad_principal" 
                         tabindex="1" value="{{ isset($usuario->actividad_principal) ? $usuario->actividad_principal:old('actividad_principal') }}">
-                        <option selected="">Elija una opción...</option>
+                        <option disabled selected="">Elija una opción...</option>
                         <option value="Buscando Trabajo">Buscando Trabajo</option>
                         <option value="Trabajar">Trabajar</option>
                         <option value="Estudiar">Estudiar</option>
@@ -605,10 +605,10 @@
                 <div class="form-group">
                     <label for="expectativas" class="control-label">{{'¿Cuáles son las expectativas que usted tiene con ser beneficiario del centro vida o día?'}}</label>
 
-                    <textarea type="text"  class="form-control {{$errors->has('expectativas')? 'is-invalid':'' }}" 
+                    <input type="text"  class="form-control {{$errors->has('expectativas')? 'is-invalid':'' }}" 
                     name="expectativas" 
                     id="expectativas" 
-                    value="{{ isset($usuario->expectativas)?$usuario->expectativas:old('expectativas')}}"> </textarea>
+                    value="{{ isset($usuario->expectativas) ? $usuario->expectativas:old('expectativas')}}">
 
                     {!! $errors->first('expectativas','<div class="invalid-feedback">:message</div>') !!}
                 </div>
@@ -620,10 +620,10 @@
                         <div class="form-group">
                             <label for="condicion_medica" class="control-label">{{'Describa condiciones médicas especiales o que considera necesarias tener en cuenta.'}}</label>
 
-                            <textarea type="text"  class="form-control {{$errors->has('condicion_medica')? 'is-invalid':'' }}" 
+                            <input type="text"  class="form-control {{$errors->has('condicion_medica')? 'is-invalid':'' }}" 
                             name="condicion_medica" 
                             id="condicion_medica" 
-                            value="{{ isset($usuario->condicion_medica)?$usuario->condicion_medica:old('condicion_medica')}}"> </textarea>
+                            value="{{ isset($usuario->condicion_medica) ? $usuario->condicion_medica:old('condicion_medica')}}">
 
                             {!! $errors->first('condicion_medica','<div class="invalid-feedback">:message</div>') !!}
                         </div>
@@ -639,7 +639,7 @@
                     <div class="form-group">
                         <label for="fecha_ingreso" class="control-label">{{'Fecha de Ingreso'}}</label>
                         <input type="date"  class="form-control {{$errors->has('fecha_ingreso')? 'is-invalid':'' }}" name="fecha_ingreso" id="fecha_ingreso" 
-                        value="{{ isset($usuario->fecha_ingreso)?$usuario->fecha_ingreso:old('fecha_ingreso')}}">
+                        value="{{ isset($usuario->fecha_ingreso) ? $usuario->fecha_ingreso:old('fecha_ingreso')}}">
 
                         {!! $errors->first('fecha_ingreso','<div class="invalid-feedback">:message</div>') !!}
                     </div>
@@ -650,10 +650,10 @@
                         <div class="form-group">
                             <label for="observaciones" class="control-label">{{'Observaciones'}}</label>
 
-                            <textarea type="text"  class="form-control {{$errors->has('observaciones')? 'is-invalid':'' }}" 
+                            <input type="text"  class="form-control {{$errors->has('observaciones')? 'is-invalid':'' }}" 
                             name="observaciones" 
                             id="observaciones" 
-                            value="{{ isset($usuario->observaciones)?$usuario->observaciones:old('observaciones')}}"> </textarea>
+                            value="{{ isset($usuario->observaciones) ? $usuario->observaciones:old('observaciones')}}"> 
 
                             {!! $errors->first('observaciones','<div class="invalid-feedback">:message</div>') !!}
                         </div>
@@ -664,7 +664,7 @@
                     <div class="form-group">
                         <label for="nombre_funcionario" class="control-label">{{'Nombre del funcionario'}}</label>
                         <input type="text"  class="form-control {{$errors->has('nombre_funcionario')? 'is-invalid':'' }}" name="nombre_funcionario" id="nombre_funcionario" 
-                        value="{{ isset($usuario->nombre_funcionario)?$usuario->nombre_funcionario:old('nombre_funcionario')}}">
+                        value="{{ isset($usuario->nombre_funcionario) ? $usuario->nombre_funcionario:old('nombre_funcionario')}}">
 
                         {!! $errors->first('nombre_funcionario','<div class="invalid-feedback">:message</div>') !!}
                     </div>
