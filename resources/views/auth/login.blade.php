@@ -3,8 +3,7 @@
 @section('content')
 <div class="container">
 <center>
-<img class="login-logo" src="{{ asset('css/escudo.png') }}" />
-<img class="login-logo" src="{{ asset('css/logos.png') }}" width="450" height="100" />
+<img class="login-logo" src="{{ asset('css/LOGO.jpg') }}" width="480" height="150" />
 </center>
     <div class="row justify-content-center">
         <div class="col-md-8">

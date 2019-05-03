@@ -3,9 +3,10 @@
 <h1>FORMULARIO DE INSCRIPCION CENTRO DIA O VIDA</h1>
 <br/>
 <center>
-<img class="login-logo" src="{{ asset('css/escudo.png') }}" />
-<img class="login-logo" src="{{ asset('css/logos.png') }}" width="450" height="100" />
+
+<img class="login-logo" src="{{ asset('css/LOGO.jpg') }}" width="480" height="150" />
 </center>
+<br>
 <h3>IDENTIFICACIÓN BÁSICA DEL BENEFICIARIO(A)</h3>
 <br/>
 
@@ -153,6 +154,7 @@
                         <option value="Otro">Otro</option>
 
                     </select>
+                    {!! $errors->first('sexo','<div class="invalid-feedback">:message</div>') !!}
 
                     
                 </div>
@@ -181,6 +183,7 @@
                         <option value="No">No</option>
                                      
                     </select>
+                    {!! $errors->first('sisben','<div class="invalid-feedback">:message</div>') !!}
                    
                 </div>
             </div>
@@ -217,7 +220,7 @@
                      
               
                     </select>
-
+                    {!! $errors->first('afiliacion_eps','<div class="invalid-feedback">:message</div>') !!}
                 </div>
             </div>
 
@@ -238,6 +241,7 @@
                         <option value="Regimen Especial">Regimen Especial</option>
               
                     </select>
+                    {!! $errors->first('estado_eps','<div class="invalid-feedback">:message</div>') !!}
 
                 </div>
             </div>
@@ -281,6 +285,7 @@
                         <option value="Otros">Otro</option>
 
                     </select>
+                    {!! $errors->first('condicion_poblacion','<div class="invalid-feedback">:message</div>') !!}
                    
 <br/>   
                 </div>
@@ -310,10 +315,9 @@
                         <option value="Postgrado Completo">Postgrado Completo</option>
                         <option value="Postgrado Incompleto">Postgrado Incompleto</option>
                         
-                        
-                     
-            
+                    
                     </select>
+                    {!! $errors->first('nivel_educativo','<div class="invalid-feedback">:message</div>') !!}
                    
 <br/>        
                 </div>
@@ -337,6 +341,7 @@
                                 
                         
                                 </select>
+                                {!! $errors->first('organizacion_asociacion','<div class="invalid-feedback">:message</div>') !!}
 
                             </div>
                         </div>
@@ -356,6 +361,7 @@
                                 
                         
                                 </select>
+                                {!! $errors->first('subsidio','<div class="invalid-feedback">:message</div>') !!}
 
                             </div>
                         </div>        
@@ -375,6 +381,7 @@
                                     <option value="No Aplica">No aplica</option>
                                 
                                 </select>
+                                {!! $errors->first('tipo_documento','<div class="invalid-feedback">:message</div>') !!}
 
                             </div>
                             </div>        
@@ -397,18 +404,21 @@
           <!-- -------------------------------   -------------------------------------------->
           <div class="col-md-6">
                 <div class="form-group">
-                    <label for="tiempo_libre" class="control-label">{{'Describa su tiempo libre'}}</label>
+                    <label for="tiempo_libre" class="control-label">{{'Gustos Personales'}}</label>
 
                     <input type="text"  class="form-control {{$errors->has('tiempo_libre')? 'is-invalid':'' }}" 
                     name="tiempo_libre" 
                     id="tiempo_libre" 
                     value="{{ isset($usuario->tiempo_libre)?$usuario->tiempo_libre:old('tiempo_libre')}}">
 
+                    <input type="radio" name="gender" value="female"> Female<br>
+                    <input type="radio" name="gender" value="other"> Other<br><br>
+
                     {!! $errors->first('tiempo_libre','<div class="invalid-feedback">:message</div>') !!}
                 </div>
             </div>
             <br/>
-
+            
      </div>                   
 </div>                        
 <!-------------------------------------------------------------------------------------------->
@@ -426,6 +436,7 @@
                         <option value="Cundinamarca">Cundinamarca</option>
  
                     </select>
+                    {!! $errors->first('departamento','<div class="invalid-feedback">:message</div>') !!}
                    
         <br/>        
                 </div>
@@ -444,6 +455,7 @@
                         <option value="La Vega">La Vega</option>
  
                     </select>
+                    {!! $errors->first('municipio','<div class="invalid-feedback">:message</div>') !!}
                    
         <br/>        
                 </div>
@@ -593,6 +605,7 @@
                         <option value="Otro">Otro</option>
 
                     </select>
+                    {!! $errors->first('actividad_principal','<div class="invalid-feedback">:message</div>') !!}
                    
                         <br/>        
                     </div>

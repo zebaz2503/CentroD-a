@@ -83,10 +83,19 @@ class NutricionController extends Controller
      * @param  \App\Nutricion  $nutricion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Nutricion $nutricion)
+    public function update(Request $request, $id)
     {
         //
-        
+        $nutricion = Nutricion::find($id);
+        $nutricion->peso = $request->peso;
+        $nutricion->talla = $request->talla;
+        $nutricion->diagnostico = $request->diagnostico;
+        $nutricion->desnutricion = $request->desnutricion;
+        $nutricion->save();
+
+        $datosNutricion=request()->except(['_token','_method']);
+
+        return redirect('nutricion')->with('Mensaje','Datos modificados con éxito!!');
     }
 
     /**
@@ -100,6 +109,6 @@ class NutricionController extends Controller
         //
         $nutricion= Nutricion::findOrFail($id);
         Nutricion::destroy($id);
-        return redirect('nutricion')->with('Mensaje','Usuario eliminado');
+        return redirect('nutricion')->with('Mensaje','Registro eliminado');
     }
 }
