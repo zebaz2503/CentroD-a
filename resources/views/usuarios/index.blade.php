@@ -19,6 +19,7 @@
     <a class="nav-link" href="{{url('nutricion') }}">Nutrición</a>
   </li>
 </ul>
+<a href="{{ route('exportar') }}" class="btn btn-success" >Descargar Registro</a>
 </nav>
 <br>
 @if(Session::has('Mensaje'))
@@ -43,7 +44,7 @@
                   </div>
                
                   <!----------------------------------------------------------------------------------------------------------->
-
+                  
           <div class="row">
             <div class="col-md-6">
                   <a href="{{ url('usuarios/create') }}" class="btn btn-primary">Agregar Usuario +</a>

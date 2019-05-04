@@ -1,6 +1,9 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +16,17 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
-});
+     return view('auth.login');
+ });
 
+// Route::get('/', function () {
+//     return Excel::download(new UsersExport, 'users.xls');
+// });
 
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('nutricion', 'NutricionController');
 
-
 Auth::routes(['reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/exportar', 'Controller@exportar')->name('exportar');

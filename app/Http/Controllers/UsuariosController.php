@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Route;
 use App\Nutricion;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class UsuariosController extends Controller
 {
@@ -168,40 +169,38 @@ class UsuariosController extends Controller
         $usuario = Usuarios::all();
         $campos=[
 
-            'primer_nombre' => 'required|string|max:100',
+            // 'primer_nombre' => 'required|string|max:100',
             
-            'primer_apellido' =>  'required|string|max:100',
+            // 'primer_apellido' =>  'required|string|max:100',
             
-            
-            
-            'fecha_nacimiento' => 'required|string|max:100',
-            'numero_documento' =>  'required|string|max:100',
+            // 'fecha_nacimiento' => 'required|string|max:100',
+            // 'numero_documento' =>  'required|string|max:100',
             'edad' =>  'required|string|max:100',
-            'sisben' => 'required|string|max:100',
-            'puntaje_sisben' =>  'required|string|max:100',
-            'sexo' =>  'required|string|max:100',
-            'afiliacion_eps' => 'required|string|max:100',
+            // 'sisben' => 'required|string|max:100',
+            // 'puntaje_sisben' =>  'required|string|max:100',
+            // 'sexo' =>  'required|string|max:100',
+            // 'afiliacion_eps' => 'required|string|max:100',
             'estado_eps' =>  'required|string|max:100',
             'nombre_eps' =>  'required|string|max:100',
-            'condicion_poblacion' => 'required|string|max:100',
-            'nivel_educativo' =>  'required|string|max:100',
+            // 'condicion_poblacion' => 'required|string|max:100',
+            // 'nivel_educativo' =>  'required|string|max:100',
             'organizacion_asociacion' =>  'required|string|max:100',
             'subsidio' => 'required|string|max:100',
             'tipo_subsidio' =>  'required|string|max:100',
-            'cual_subsidio' =>  'required|string|max:100',
+            // 'cual_subsidio' =>  'required|string|max:100',
             'tiempo_libre' =>  'required|string|max:100',
-            'departamento' =>  'required|string|max:100',
-            'municipio' =>  'required|string|max:100',
+            // 'departamento' =>  'required|string|max:100',
+            // 'municipio' =>  'required|string|max:100',
             'zona_residencia' =>  'required|string|max:100',
             'direccion' =>  'required|string|max:100',
             'telefono' =>  'required|string|max:100',
-            'telefono_movil' =>  'required|string|max:100',
-            'correo' =>  'required|string|max:100',
+            // 'telefono_movil' =>  'required|string|max:100',
+            // 'correo' =>  'required|string|max:100',
             'nombre_contacto' =>  'required|string|max:100',
             'telefono_parentesco' =>  'required|string|max:100',
 
             'parentesco' =>  'required|string|max:100',
-            'actividad_principal' =>  'required|string|max:100',
+            // 'actividad_principal' =>  'required|string|max:100',
             'expectativas' =>  'required|string|max:100',
             'condicion_medica' =>  'required|string|max:100',
             'fecha_ingreso' =>  'required|string|max:100',
@@ -216,6 +215,8 @@ class UsuariosController extends Controller
         $this->validate($request, $campos, $Mensaje);
         /////////////////////////////////////////////////////////////////
         $datosUsuarios=request()->except(['_token','_method']);
+
+
         
         if($request->hasFile('foto')){
 
@@ -226,8 +227,29 @@ class UsuariosController extends Controller
 
         }
         
-        
-        Usuarios::where('id','=',$id)->update($datosUsuarios);
+        $usuario = Usuarios::find($id);
+        $usuario->edad = $request->edad;
+        $usuario->estado_eps = $request->estado_eps;
+        $usuario->nombre_eps = $request->nombre_eps;
+        $usuario->organizacion_asociacion = $request->organizacion_asociacion;
+        $usuario->subsidio = $request->subsidio;
+        $usuario->tipo_subsidio = $request->tipo_subsidio;
+        $usuario->tiempo_libre = $request->tiempo_libre;
+        $usuario->zona_residencia = $request->zona_residencia;
+        $usuario->direccion = $request->direccion;
+        $usuario->telefono = $request->telefono;
+        $usuario->nombre_contacto = $request->nombre_contacto;
+        $usuario->telefono_parentesco = $request->telefono_parentesco;
+        $usuario->parentesco = $request->parentesco;
+        $usuario->expectativas = $request->expectativas;
+        $usuario->condicion_medica = $request->condicion_medica;
+        $usuario->fecha_ingreso = $request->fecha_ingreso;
+        $usuario->observaciones = $request->observaciones;
+        $usuario->nombre_funcionario = $request->nombre_funcionario;
+       
+        $usuario->save();
+
+        //Usuarios::where('id','=',$id)->update($datosUsuarios);
 
         return redirect('usuarios')->with('Mensaje','Usuario modificado con éxito');
 
@@ -254,7 +276,22 @@ class UsuariosController extends Controller
 
        return redirect('usuarios')->with('Mensaje','Usuario eliminado');
 
-
-
     }
+
+    //     public function excel(){
+        
+    //     Excel::create('Registro Usuarios', function($excel) { //crea el libro de excel 
+ 
+    //         $excel->sheet('Usuarios', function($sheet) {
+ 
+    //             $usuario = Usuarios::all();
+ 
+    //             $sheet->fromArray($usuario);
+ 
+    //         });
+    //     })->export('xls');
+ 
+    // }
+
+
 }

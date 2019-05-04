@@ -9,6 +9,13 @@ use App\Usuarios;
 
 class NutricionController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth'
+            
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -72,6 +79,7 @@ class NutricionController extends Controller
     public function edit($id)
     {
         //
+        
         $nutricion= Nutricion::findOrFail($id);
         return view('nutricion.edit',compact('nutricion'));
     }
