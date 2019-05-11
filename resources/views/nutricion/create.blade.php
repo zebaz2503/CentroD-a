@@ -36,7 +36,7 @@
 
             value="{{ isset($nutricion->peso)}}">
 
-            <!--{!! $errors->first('peso','<div class="invalid-feedback">:message</div>')    !!}-->
+            {!! $errors->first('peso','<div class="invalid-feedback">:message</div>')    !!}
 
     </div>
 <!------------------------------------------------------------------------------------------------------------->
@@ -50,7 +50,7 @@
 
             value="{{ isset($nutricion->talla)}}">
 
-            <!--{!! $errors->first('peso','<div class="invalid-feedback">:message</div>')    !!}-->
+            {!! $errors->first('talla','<div class="invalid-feedback">:message</div>')    !!}
 
     </div>
     <hr>
@@ -73,13 +73,8 @@
  
             </select>
 
-            <!--<input type="text"  class="form-control  {{$errors->has('diagnostico')?'is-invalid':'' }}" 
-            name="diagnostico" 
-            id="diagnostico" 
 
-            value="{{ isset($nutricion->diagnostico)}}">-->
-
-            <!--{!! $errors->first('peso','<div class="invalid-feedback">:message</div>')    !!}-->
+            {!! $errors->first('diagnostico','<div class="invalid-feedback">:message</div>')    !!}
 
 </div>
 
@@ -100,13 +95,7 @@
             </select>
 
 
-            <!--<input type="text"  class="form-control  {{$errors->has('desnutricion')?'is-invalid':'' }}" 
-            name="desnutricion" 
-            id="desnutricion" 
-
-            value="{{ isset($nutricion->desnutricion)}}">-->
-
-            <!--{!! $errors->first('peso','<div class="invalid-feedback">:message</div>')    !!}-->
+            {!! $errors->first('desnutricion','<div class="invalid-feedback">:message</div>')    !!}
 
     </div>
 <!------------------------------------------------------------------------------------------------------------->

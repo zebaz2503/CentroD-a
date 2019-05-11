@@ -50,9 +50,25 @@ class NutricionController extends Controller
     {
         $Mensaje=["required"];
 
+
+        $campos=[
+
+     
+            'peso' =>  'required|string|max:100',
+            'talla' =>  'required|string|max:100',
+            'diagnostico' =>  'required|string|max:100',
+            'desnutricion' =>  'required|string|max:100',
+           
+        ];
+
+        $Mensaje=["required"=>':attribute es requerido(a)'];
+
+        $this->validate($request, $campos, $Mensaje);
+        /////////////////////////////////////////////////////////////////
+        
         //
         $usuarios = Usuarios::all();
-        $datosNutricion=request()->except('_token');
+        $datosNutricion=request()->except(['_token', '_method']);
         
         Nutricion::insert($datosNutricion);//almacenar datos en la base de datos
         return redirect('nutricion')->with('Mensaje','Datos registrados con éxito!!');
